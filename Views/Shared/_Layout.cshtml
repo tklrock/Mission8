@@ -2,14 +2,23 @@
 
 <html>
 <head>
-    @*Bringing in bootstrap, allowing for title and headers to be set in the controller*@ 
+    @*Bringing in bootstrap, allowing for title and headers to be set in the controller*@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
+
     <div class="bg-dark text-white p-2">
-        <span class="navbar-brand ml-2">@ViewBag.Header</span>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand">@ViewBag.Header</div>
+                <div class="col-6 text-right">
+                    <vc:cart-summary />
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row m-1 p-1">

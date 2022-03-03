@@ -27,10 +27,14 @@ namespace Mission8
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IMission7Repository, EFMission7Repository>();
+            services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
 
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();
+
+            services.AddScoped<Cart>(x => SessionCart.GetCart(x));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddControllersWithViews();
             services.AddDbContext<BookstoreContext>(options =>
