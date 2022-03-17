@@ -5,6 +5,8 @@
 
 <PurchaseTable TableTitle="Shipped Purchases" Purchases="ShippedPurchases" ButtonLabel="Unship" PurchaseSelected="ResetPurchase"></PurchaseTable>
 
+<button class="btn btn-info" @onclick="@(x => UpdateData())">Refresh Data</button>
+
 @code {
     public IPurchaseRepository repo => Service;
 
