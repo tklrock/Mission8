@@ -1,6 +1,25 @@
-﻿
+﻿@{ var tableClassLevel = "";
+    var buttonClassLevel = "";}
+@if (Purchases?.Count() > 0)
+{
+    if (Purchases.ToList()[0].PurchaseShipped == true)
+    {
+        tableClassLevel = "table-secondary";
+        buttonClassLevel = "btn-danger";
+    }
+    else
+    {
+        tableClassLevel = "table-light";
+        buttonClassLevel = "btn-success";
+    }
+}
+else
+{
+    tableClassLevel = "table-dark";
+}
 
-<table class="table table-sm table-striped table-bordered table-hover">
+
+<table class="table table-sm table-striped table-bordered table-hover  @tableClassLevel ">
 
     <thead class="thead-dark text-white">
         <tr>
@@ -20,7 +39,7 @@
                     <th>Quantity</th>
 
                     <td>
-                        <button class="btn btn-sm btn-danger" @onclick="@(x=> PurchaseSelected.InvokeAsync(p.PurchaseId))">
+                        <button class="btn btn-sm @buttonClassLevel" @onclick="@(x=> PurchaseSelected.InvokeAsync(p.PurchaseId))">
                             @ButtonLabel
                         </button>
                     </td>

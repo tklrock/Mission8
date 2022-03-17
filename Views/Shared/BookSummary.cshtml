@@ -6,8 +6,8 @@
 
 @model Book
 
-<div class="card card-outline-primary m-1 p-1">
-    <div class="bg-faded p-1">
+<div class="card card-outline-primary m-1">
+    <div class="card-header bg-faded p-2">
         @*Header Information*@
         <h4>
             @Model.Title
@@ -17,14 +17,13 @@
         </h4>
     </div>
     @*Remaining Information*@
-    <div>
-        <div class="card-text p-1 col-6"><b>Author: </b>@Model.Author</div>
-        <div class="card-text p-1 col-6"><b>Publisher: </b>@Model.Publisher</div>
-        <div class="card-text p-1 col-6"><b>ISBN: </b>@Model.Isbn</div>
-        <div class="card-text p-1 col-6"><b>Classification: </b>@Model.Classification</div>
-        <div class="card-text p-1 col-6"><b>Category: </b>@Model.Category</div>
-        <div class="card-text p-1 col-6"><b># of Pages: </b>@Model.PageCount</div>
-    </div>
+<div class="card-body p-2">
+    <div class="card-text p-1 col-6"><b>Author: </b>@Model.Author</div>
+    <div class="card-text p-1 col-6"><b>Publisher: </b>@Model.Publisher</div>
+    <div class="card-text p-1 col-6"><b>ISBN: </b>@Model.Isbn</div>
+    <div class="card-text p-1 col-6"><b>Classification: </b>@Model.Classification</div>
+    <div class="card-text p-1 col-6"><b>Category: </b>@Model.Category</div>
+    <div class="card-text p-1 col-6"><b># of Pages: </b>@Model.PageCount</div>
 
     <form method="post" asp-page="/Buy">
 
@@ -35,4 +34,7 @@
             <button type="submit" class="btn btn-success btn-sm float-right">Buy</button>
         </span>
     </form>
+</div>
+
+    
 </div>
